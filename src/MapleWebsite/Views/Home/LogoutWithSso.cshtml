@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    var logoutUrl = ViewData["LogoutUrl"]?.ToString() ?? "";
+    var samlRequest = ViewData["SAMLRequest"]?.ToString() ?? "";
+}
+
+<div class="text-center">
+    @if (!string.IsNullOrEmpty(logoutUrl))
+    {
+        <h3>You will be redirected to logout from the app in your organization</h3>
+        <form action="@logoutUrl" method="post">
+            <div>
+                <input type="hidden" id="SAMLRequest" name="SAMLRequest" value="@samlRequest" />
+                <div>
+                    <input type="submit" value="Continue" />
+                </div>
+            </div>
+        </form>
+    }
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    var success = ViewData["success"]?.ToString() ?? "";
+    var email = ViewData["email"]?.ToString() ?? "";
+}
+
+<h3>We are logged in!</h3>
+<p>Is logged in: </p>
+<p>@success</p>
+<br /><br /><br />
+<p>Email:</p>
+<p>@email</p>
+
+@using (Html.BeginForm("LogoutWithSso", "Home"))
+{
+    <div class="form-group">
+        <div class="text-center">
+            <input type="submit" value="Log out" id="Submit" />
+        </div>
+    </div>
+}

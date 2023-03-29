@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    var loginUrl = ViewData["LoginUrl"]?.ToString() ?? "";
+    var samlRequest = ViewData["SAMLRequest"]?.ToString() ?? "";
+}
+
+<div class="text-center">
+    @if (!string.IsNullOrEmpty(loginUrl))
+    {
+        <h3>You will be redirected to login to your organization</h3>
+        <form action="@loginUrl" method="post">
+            <div>
+                <input type="hidden" id="SAMLRequest" name="SAMLRequest" value="@samlRequest" />
+                <div>
+                    <input type="submit" value="Continue" />
+                </div>
+            </div>
+        </form>
+    }
+</div>

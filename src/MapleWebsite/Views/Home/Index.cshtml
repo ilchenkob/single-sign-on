@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    @using (Html.BeginForm("LoginWithSso", "Home"))
+    {
+                <div class="form-group">
+                    <div class="text-center">
+                        <input type="submit" value="Login with SSO" id="Submit" onclick="location.href='@Url.Action("LoginWithSso", "Home")'" />
+                    </div>
+                </div>
+    }
+</div>
